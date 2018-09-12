@@ -48,9 +48,6 @@ function createElement(node) {
 }
 
 function diffElement(parentNode, el, lhs, rhs) {
-  if(!lhs && !rhs) {
-    return;
-  }
   if(!lhs && rhs) {//new
     return parentNode.appendChild(createElement(rhs));
   }
@@ -113,11 +110,11 @@ function diffStyle(parentNode, el, lhs, rhs) {
 }
 
 function diffChildren(parentNode, el, lhs, rhs) {
-  for(var c=el.firstChild, i=0; ; c=c.nextSibling, ++i) {
+  var l=Math.max(lhs.length, rhs.length);
+  for(var c = el.firstChild, i=0; i < l; ++i) {
+    var tc = c.nextSibling;
     diffElement(el, c, lhs[i], rhs[i]);
-  }
-  for(var i=lhs.length, l=rhs.length; i < l;++i) {
-    diffElement(el, el.childNodes[i], lhs[i], rhs[i]);
+    c = tc;
   }
 }
 
