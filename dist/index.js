@@ -55,13 +55,9 @@ function diffElement(parentNode, el, lhs, rhs) {
     return parentNode.removeChild(el);
   }
   if((typeof lhs === 'string' && typeof rhs !== 'string') ||
-     (typeof lhs !== 'string' && typeof rhs === 'string')) {
-    return parentNode.replaceChild(createElement(rhs), el);
-  }
-  if(typeof rhs === 'string' && typeof lhs === 'string' && lhs !== rhs) {
-    return parentNode.replaceChild(createElement(rhs), el);
-  }
-  if(lhs.tag !== rhs.tag) {//new
+     (typeof lhs !== 'string' && typeof rhs === 'string') ||
+     (typeof rhs === 'string' && typeof lhs === 'string' && lhs !== rhs ) ||
+     (lhs.tag !== rhs.tag)) {//new
     return parentNode.replaceChild(createElement(rhs), el);
   }
 
@@ -110,11 +106,11 @@ function diffStyle(parentNode, el, lhs, rhs) {
 }
 
 function diffChildren(parentNode, el, lhs, rhs) {
-  var l=Math.max(lhs.length, rhs.length);
+  var tc, l=Math.max(lhs.length, rhs.length);
   for(var c = el.firstChild, i=0; i < l; ++i) {
-    var tc = c.nextSibling;
+    if(c) tc = c.nextSibling;
     diffElement(el, c, lhs[i], rhs[i]);
-    c = tc;
+    if(tc) c = tc;
   }
 }
 

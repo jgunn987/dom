@@ -26,10 +26,10 @@ function root2(c) {
   return dom('div', { id: 'tree2', 'class': 'test', style: { 
     width: '200%', color: 'red' 
   } }, [
-    dom('textarea', {}, [dom('some texting')]),
     dom('a', { href: '#', style: { display: 'block' } }, [dom('goodbye world1')]),
     dom('a', { href: '#', style: { display: 'block' } }, [dom('goodbye world2')]),
-    dom('a', { href: '#', style: { display: 'block' } }, [dom('goodbye world3')])
+    dom('a', { href: '#', style: { display: 'block' } }, [dom('goodbye world3')]),
+    dom('textarea', {}, [dom('some texting')])
   ], { 
     click: function (e) {
       console.log(9);
