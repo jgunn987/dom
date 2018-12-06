@@ -29,7 +29,8 @@ function root2(c) {
     dom('a', { href: '#', style: { display: 'block' } }, [dom('goodbye world1')]),
     dom('a', { href: '#', style: { display: 'block' } }, [dom('goodbye world2')]),
     dom('a', { href: '#', style: { display: 'block' } }, [dom('goodbye world3')]),
-    dom('textarea', {}, [dom('some texting')])
+    dom('textarea', {}, [dom('some texting')]),
+    dom('div', { id: 'sub-app' })
   ], { 
     click: function (e) {
       console.log(9);
@@ -44,7 +45,7 @@ before(function() {
   dom.el('t');
 });
 
-describe('hype-script()', function () {
+describe('dom', function () {
   it('returns a vdom node for an element', function () {
     var tree = root();
     assert.ok(tree);
@@ -58,7 +59,7 @@ describe('hype-script()', function () {
   });
 });
 
-describe('hype-script.render()', function () {
+describe('dom.render', function () {
   it('renders a vnode tree', function () {
     dom.root(root);
     dom.render();
