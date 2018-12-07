@@ -1,3 +1,0 @@
-describe('hype-script', function () {
-    
-});
