@@ -52,7 +52,6 @@ function diffElement(parentNode, el, lhs, rhs) {
     return parentNode.appendChild(createElement(rhs));
   }
   if(lhs && !rhs) {//delete
-    console.log(9);
     return parentNode.removeChild(el);
   }
   if((typeof lhs === 'string' && typeof rhs !== 'string') ||
@@ -18625,7 +18624,7 @@ before(function() {
   dom.el('t');
 });
 
-describe('dom', function () {
+describe('hype-script()', function () {
   it('returns a vdom node for an element', function () {
     var tree = root();
     assert.ok(tree);
@@ -18639,7 +18638,7 @@ describe('dom', function () {
   });
 });
 
-describe('dom.render', function () {
+describe('hype-script.render()', function () {
   it('renders a vnode tree', function () {
     dom.root(root);
     dom.render();

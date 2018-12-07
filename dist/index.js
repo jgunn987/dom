@@ -52,7 +52,6 @@ function diffElement(parentNode, el, lhs, rhs) {
     return parentNode.appendChild(createElement(rhs));
   }
   if(lhs && !rhs) {//delete
-    console.log(9);
     return parentNode.removeChild(el);
   }
   if((typeof lhs === 'string' && typeof rhs !== 'string') ||
