@@ -1,5 +1,5 @@
 {
-  "name": "dom",
+  "name": "hype-script",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -10,10 +10,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "lodash": "4.17.11"
+    "lodash": "4.17.11",
+    "promise": "^8.0.2"
   },
   "devDependencies": {
-    "browserify": "16.2.2",
+    "browserify": "^16.2.3",
     "mocha": "5.2.0"
   }
 }
